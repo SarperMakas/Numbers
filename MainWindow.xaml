@@ -1,0 +1,152 @@
+﻿<Window x:Class="NumberConverter.NumberWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NumberConverter"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <Window.Resources>
+        <!--Styling TextBox-->
+        <Style TargetType="TextBox">
+            <!--Setting Font-->
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontWeight" Value="bold"/>
+            <Setter Property="FontSize" Value="30"/>
+            <!--Setting Aligment-->
+            <Setter Property="VerticalContentAlignment" Value=" Center"/>
+        </Style>
+
+        <!--Styling Border-->
+        <Style TargetType="Border">
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="BorderThickness" Value="3"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+
+        <!--Styling Buttons-->
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Background" Value="#878786"/>
+
+            <!--Hover Affect-->
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" BorderBrush="#FF333333" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.8" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <!--Columns-->
+            <ColumnDefinition Width="0.35*"/>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="0.35*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <!--Rows-->
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.2*"/>
+        </Grid.RowDefinitions>
+
+        <!--Title-->
+        <TextBlock Text="NUMBER CONVERTER" Grid.ColumnSpan="7" Grid.Column="0" Grid.Row="0" FontSize="40" FontFamily="30" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+        <!--Borders and Textbox-->
+        <Border Grid.Column="1" Grid.Row="2">
+            <TextBox x:Name="BinaryText"/>
+        </Border>
+
+        <Border Grid.Column="1" Grid.Row="4">
+            <TextBox x:Name="HexadecimalText"/>
+        </Border>
+
+        <Border Grid.Column="1" Grid.Row="6">
+            <TextBox x:Name="IsPrimeText"/>
+        </Border>
+
+        <Border Grid.Column="1" Grid.Row="8">
+            <TextBox x:Name="IsEmirpText"/>
+        </Border>
+
+        <Border Grid.Column="1" Grid.Row="10">
+            <TextBox x:Name="IsHappyText"/>
+        </Border>
+
+        <Border Grid.Column="1" Grid.Row="12">
+            <TextBox x:Name="EvenOrOddText"/>
+        </Border>
+
+        <!--Buttons-->
+
+        <!--Binary Buttons-->
+        <Border Grid.Column="3" Grid.Row="2">
+            <Button Content="Binary-Num" Click="BinaryToNum"/>
+        </Border>
+        <Border Grid.Column="5" Grid.Row="2">
+            <Button Content="Num-Binary" Click="NumToBinary"/>
+        </Border>
+
+        <!--Hexadecimal Buttons-->
+        <Border Grid.Column="3" Grid.Row="4">
+            <Button Content="Hex-Num" Height="44" Click="HexToNum"/>
+        </Border>
+        <Border Grid.Column="5" Grid.Row="4">
+            <Button Content="Num-Hex" Click="NumToHex"/>
+        </Border>
+
+        <!--Prime Button-->
+        <Border Grid.Column="3" Grid.Row="6" Grid.ColumnSpan="3">
+            <Button Content="Is Prime" Click="IsPrimeState"/>
+        </Border>
+
+        <!--Emirp Button-->
+        <Border Grid.Column="3" Grid.Row="8" Grid.ColumnSpan="3">
+            <Button Content="Is Emirp" Click="IsEmirpState"/>
+        </Border>
+
+        <!--Happy Button-->
+        <Border Grid.Column="3" Grid.Row="10" Grid.ColumnSpan="3">
+            <Button Content="Is Happy" Click="IsHappyState"/>
+        </Border>
+
+        <!--Happy Button-->
+        <Border Grid.Column="3" Grid.Row="12" Grid.ColumnSpan="3">
+            <Button Content="Even Or Odd" Click="EvenOrOddState"/>
+        </Border>
+
+    </Grid>
+</Window>
